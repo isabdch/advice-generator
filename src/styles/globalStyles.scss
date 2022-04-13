@@ -1,3 +1,7 @@
+$bg-color: #442161;
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+
 html {
   @media screen and (max-width: 1080px) {
     font-size: 93.75%;
@@ -11,12 +15,17 @@ html {
 body {
   width: 100vw;
   height: 100vh;
+  background-color: $bg-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Inconsolata', monospace;
 }
 
 button {

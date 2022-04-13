@@ -1,0 +1,28 @@
+$bg-color: #442161;
+$container-bg-color: #31224c;
+
+@mixin flex($justify-content, $align-items, $flex-flow) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-flow: $flex-flow;
+}
+
+.container {
+  width: 30vw;
+  height: 50vh;
+  border-radius: 2vw;
+  background-color: $container-bg-color;
+  @include flex(space-evenly, center, column);
+  gap: 20px;
+
+  .content {
+      width: 90%;
+      height: 50%;
+      padding: 20px;
+      font-size: 1.3em;
+      border-radius: 1em;
+      @include flex(center, center, row);
+      text-align: center;
+  }
+}
