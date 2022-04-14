@@ -2,6 +2,7 @@
   "name": "advice-generator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://isabdch.github.io/advice-generator/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -13,19 +14,22 @@
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
+    "@babel/compat-data": "^7.17.7",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "gh-pages": "^3.2.3",
     "node-sass": "^7.0.1",
-    "@babel/compat-data": "^7.17.7",
     "typescript": "^4.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

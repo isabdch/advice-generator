@@ -32,10 +32,10 @@ $content-color-opc: #ffffff91;
   position: fixed;
   top: 0;
   left: 0;
-  margin: 10px;
+  margin: 5px;
   color: $content-color-opc;
   font-size: 2rem;
-  transition: .3s;
+  transition: 0.3s;
 
   &:hover {
     color: $content-color;
@@ -113,7 +113,7 @@ $content-color-opc: #ffffff91;
 @media screen and (min-width: 1440px) {
   .github {
     font-size: 2.5vw;
-    padding: 0.5vw;
+    margin: 0.6vw;
   }
 
   .container {
@@ -130,7 +130,7 @@ $content-color-opc: #ffffff91;
       gap: 1vw;
 
       .generateAdviceBtn {
-        padding: 1vw 1.1vw;
+        padding: 1vw 1.15vw;
         font-size: 1.2em;
       }
     }

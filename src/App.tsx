@@ -57,8 +57,8 @@ export default function App() {
       </a>
 
       <div className={styles.container}>
-        <div key={`"${advice.slip.advice}"`} className={styles.content}>
-          "{advice.slip.advice}"
+        <div key={advice.slip.advice} className={styles.content}>
+          {advice.slip.advice ? `"${advice.slip.advice}"` : null}
         </div>
 
         <div className={styles.generate}>
@@ -71,6 +71,7 @@ export default function App() {
 
         <button
           className={styles.copy}
+          title="Copy to clipboard"
           onClick={() => {
             navigator.clipboard.writeText(advice.slip.advice);
             toast("Copied to clipboard.");
