@@ -25,13 +25,18 @@ export default function App() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.content}>
-        "{advice.slip.advice}"
+      <div className={styles.content}>"{advice.slip.advice}"</div>
+
+      <div className={styles.generate}>
+        <hr />
+        <button className={styles.generateAdviceBtn} onClick={findAdvice}>
+          <i className="fa-regular fa-plus"></i>
+        </button>
+        <hr />
       </div>
 
-      <button className="copyText">Copy</button>
-      <button className="generateAdvice" onClick={findAdvice}>
-        Generate
+      <button className={styles.copy} onClick={() => {navigator.clipboard.writeText(advice.slip.advice)}}>
+        <i className="fa-regular fa-copy"></i>
       </button>
     </div>
   );

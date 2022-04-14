@@ -1,5 +1,9 @@
-$bg-color: #261146;
-$container-bg-color: #5E60CE;
+$bg-color: #3e387d;
+$bg-color-shadow: #2C2858;
+$content-color: #ffffff;
+$content-color-opc: #ffffff91;
+$button-bg-color: #5e60ce;
+$button-hover-color: #7374d4;
 
 @mixin flex($justify-content, $align-items, $flex-flow) {
   display: flex;
@@ -9,20 +13,64 @@ $container-bg-color: #5E60CE;
 }
 
 .container {
-  width: 30vw;
-  height: 50vh;
+  width: 500px;
+  height: 350px;
   border-radius: 2vw;
-  background-color: $container-bg-color;
+  // background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1372%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%23SvgjsLinearGradient1373)'%3e%3c/rect%3e%3cpath d='M1440 0L1238.54 0L1440 174.96z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1238.54 0L1440 174.96L1440 277.12L746.1899999999999 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M746.1899999999999 0L1440 277.12L1440 318.24L319.28999999999996 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M319.28999999999996 0L1440 318.24L1440 431.77L95.54999999999995 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 560L376.24 560L0 514.1z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 514.1L376.24 560L740.45 560L0 444.27000000000004z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 444.27L740.45 560L836.6500000000001 560L0 287.43999999999994z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 287.44L836.6500000000001 560L953.22 560L0 263.4z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1372'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='15.28%25' y1='-39.29%25' x2='84.72%25' y2='139.29%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1373'%3e%3cstop stop-color='rgba(209%2c 107%2c 165%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(199%2c 119%2c 185%2c 1)' offset='0.08'%3e%3c/stop%3e%3cstop stop-color='rgba(186%2c 131%2c 202%2c 1)' offset='0.17'%3e%3c/stop%3e%3cstop stop-color='rgba(170%2c 143%2c 216%2c 1)' offset='0.26'%3e%3c/stop%3e%3cstop stop-color='rgba(154%2c 154%2c 225%2c 1)' offset='0.36'%3e%3c/stop%3e%3cstop stop-color='rgba(138%2c 167%2c 236%2c 1)' offset='0.46'%3e%3c/stop%3e%3cstop stop-color='rgba(121%2c 179%2c 244%2c 1)' offset='0.56'%3e%3c/stop%3e%3cstop stop-color='rgba(105%2c 191%2c 248%2c 1)' offset='0.66'%3e%3c/stop%3e%3cstop stop-color='rgba(82%2c 207%2c 254%2c 1)' offset='0.75'%3e%3c/stop%3e%3cstop stop-color='rgba(65%2c 223%2c 255%2c 1)' offset='0.84'%3e%3c/stop%3e%3cstop stop-color='rgba(70%2c 238%2c 250%2c 1)' offset='0.92'%3e%3c/stop%3e%3cstop stop-color='rgba(95%2c 251%2c 241%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+  background-size: cover;
   @include flex(space-evenly, center, column);
   gap: 20px;
+  position: relative;
+  box-shadow: 0px 0px 15px $bg-color-shadow;
 
   .content {
-      width: 90%;
-      height: 50%;
-      padding: 20px;
-      font-size: 1.3em;
-      border-radius: 1em;
-      @include flex(center, center, row);
-      text-align: center;
+    width: 100%;
+    height: 40%;
+    padding: 20px;
+    font-size: 1.4em;
+    border-radius: 1em;
+    @include flex(center, center, row);
+    text-align: center;
+    color: $content-color;
+  }
+
+  .generate {
+    width: 90%;
+    @include flex(center, center, row);
+    gap: 10px;
+
+    hr {
+      width: 100%;
+      border: 0.5px solid $content-color-opc;
+    }
+
+    .generateAdviceBtn {
+      padding: 12px 14px;
+      border-radius: 50%;
+      font-size: 1.2em;
+      background-color: $button-bg-color;
+      color: $content-color;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $button-hover-color;
+      }
+    }
+  }
+
+  .copy {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 15px;
+    font-size: 1.3em;
+    background-color: transparent;
+    color: $content-color-opc;
+    transition: 0.3s;
+
+    &:hover {
+      color: $content-color;
+    }
   }
 }
