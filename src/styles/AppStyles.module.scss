@@ -1,15 +1,45 @@
 $bg-color: #3e387d;
-$bg-color-shadow: #2C2858;
-$content-color: #ffffff;
-$content-color-opc: #ffffff91;
+$bg-color-shadow: #2c2858;
 $button-bg-color: #5e60ce;
 $button-hover-color: #7374d4;
+$content-color: #ffffff;
+$content-color-opc: #ffffff91;
 
 @mixin flex($justify-content, $align-items, $flex-flow) {
   display: flex;
   justify-content: $justify-content;
   align-items: $align-items;
   flex-flow: $flex-flow;
+}
+
+@keyframes contentAnimation {
+  from {
+    opacity: 0;
+    transform: perspective(500px) translate3d(-35px, -40px, -150px)
+      rotate3d(1, -1, 0, 35deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(500px) translate3d(0, 0, 0);
+  }
+}
+
+.toastBody {
+  color: $bg-color;
+}
+
+.github {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  color: $content-color-opc;
+  font-size: 2rem;
+  transition: .3s;
+
+  &:hover {
+    color: $content-color;
+  }
 }
 
 .container {
@@ -33,6 +63,7 @@ $button-hover-color: #7374d4;
     @include flex(center, center, row);
     text-align: center;
     color: $content-color;
+    animation: contentAnimation 0.5s ease 0s 1 normal both;
   }
 
   .generate {
@@ -56,6 +87,10 @@ $button-hover-color: #7374d4;
       &:hover {
         background-color: $button-hover-color;
       }
+
+      &:active {
+        background-color: $button-bg-color;
+      }
     }
   }
 
@@ -72,5 +107,43 @@ $button-hover-color: #7374d4;
     &:hover {
       color: $content-color;
     }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .github {
+    font-size: 2.5vw;
+    padding: 0.5vw;
+  }
+
+  .container {
+    width: 35vw;
+    height: 45vh;
+    font-size: 1.1vw;
+
+    .content {
+      padding: 1vw;
+      font-size: 1.6em;
+    }
+
+    .generate {
+      gap: 1vw;
+
+      .generateAdviceBtn {
+        padding: 1vw 1.1vw;
+        font-size: 1.2em;
+      }
+    }
+
+    .copy {
+      margin: 1vw;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 80vw;
+    height: 350px;
   }
 }
