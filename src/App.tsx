@@ -3,21 +3,19 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./styles/AppStyles.module.scss";
 
-type Advice = {
-  slip: {
-    advice: string;
-    id: number;
-  };
-};
-
 export default function App() {
-  const [advice, setAdvice] = useState<Advice>({ slip: { advice: "", id: 0 } });
+  const [advice, setAdvice] = useState<string>("");
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
   useEffect(() => {
     fetch("https://api.adviceslip.com/advice")
       .then((res) => res.json())
       .then((data) => {
-        setAdvice(data);
+        if (/^[a-zA-Z]+$/.test(data.slip.advice.slice(-1))) {
+          setAdvice(data.slip.advice + ".");
+        } else {
+          setAdvice(data.slip.advice);
+        }
       });
   }, []);
 
@@ -25,7 +23,17 @@ export default function App() {
     fetch("https://api.adviceslip.com/advice")
       .then((res) => res.json())
       .then((data) => {
-        setAdvice(data);
+        if (/^[a-zA-Z]+$/.test(data.slip.advice.slice(-1))) {
+          setAdvice(data.slip.advice + ".");
+        } else {
+          setAdvice(data.slip.advice);
+        }
+
+        setIsDisabled(true);
+
+        setTimeout(() => {
+          setIsDisabled(false);
+        }, 2000);
       });
   }
 
@@ -57,13 +65,17 @@ export default function App() {
       </a>
 
       <div className={styles.container}>
-        <div key={advice.slip.advice} className={styles.content}>
-          {advice.slip.advice ? `"${advice.slip.advice}"` : null}
+        <div key={advice} className={styles.content}>
+          {advice !== "" ? `"${advice}"` : null}
         </div>
 
         <div className={styles.generate}>
           <hr />
-          <button className={styles.generateAdviceBtn} onClick={findAdvice}>
+          <button
+            disabled={isDisabled}
+            className={styles.generateAdviceBtn}
+            onClick={findAdvice}
+          >
             <i className="fa-regular fa-plus"></i>
           </button>
           <hr />
@@ -73,7 +85,7 @@ export default function App() {
           className={styles.copy}
           title="Copy to clipboard"
           onClick={() => {
-            navigator.clipboard.writeText(advice.slip.advice);
+            navigator.clipboard.writeText(advice);
             toast("Copied to clipboard.");
           }}
         >

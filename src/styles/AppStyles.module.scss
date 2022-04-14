@@ -84,12 +84,16 @@ $content-color-opc: #ffffff91;
       color: $content-color;
       transition: 0.3s;
 
-      &:hover {
+      &:hover:enabled {
         background-color: $button-hover-color;
       }
 
-      &:active {
+      &:active:enabled {
         background-color: $button-bg-color;
+      }
+
+      &:disabled {
+        opacity: 0.6;
       }
     }
   }
