@@ -33,7 +33,7 @@ In this project, I consumed the [Advice Slip](https://api.adviceslip.com/) API w
 
 - ### React;
 
-- ### Sass.
+- ### SCSS.
 
 <br />
 
